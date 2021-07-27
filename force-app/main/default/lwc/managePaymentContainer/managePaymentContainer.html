@@ -1,0 +1,30 @@
+<!--
+ - Created by erick on 7/27/2021.
+ -->
+
+<!-- Manage Payment Container -->
+<template>
+    <div style="float:left; width: 50%;">
+        <lightning-card  title="Contacts with Payments">
+            <p class="slds-p-horizontal_small">
+                <template if:true={contacts}>
+                    <lightning-datatable
+                            key-field="Id"
+                            data={contacts}
+                            columns={columns}
+                            hide-checkbox-column
+                            onrowaction={handleRowAction}
+                    >
+                    </lightning-datatable>
+                </template>
+            </p>
+            <p slot="footer">Card Footer</p>
+        </lightning-card>
+    </div>
+
+    <div style="float:left; width: 50%;">
+        <template if:true={contactSelected}>
+            <c-summary-contact-payments contact-id={contactSelected.Id} contact-name={contactSelected.Name}></c-summary-contact-payments>
+        </template>
+    </div>
+</template>

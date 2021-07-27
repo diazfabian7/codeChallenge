@@ -1,0 +1,23 @@
+<!--
+ - Created by erick on 7/27/2021.
+ -->
+
+<!-- Summary Contact Payments -->
+<template>
+    <lightning-card  title={titleCard}>
+        <p class="slds-p-horizontal_small">
+            <template if:true={paymentList}>
+                <lightning-datatable
+                        key-field="Id"
+                        data={paymentList}
+                        columns={columns}
+                        hide-checkbox-column
+                        onsave={handleSave}
+                        draft-values={paymentsDraftValues}
+                >
+                </lightning-datatable>
+            </template>
+        </p>
+        <p slot="footer">Card Footer</p>
+    </lightning-card>
+</template>
